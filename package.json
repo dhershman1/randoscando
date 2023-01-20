@@ -1,0 +1,39 @@
+{
+  "name": "predictable-data-generation",
+  "version": "1.0.0",
+  "description": "A data generation tool for predictably random data",
+  "module": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "tape tests/*.spec.js | tap-on"
+  },
+  "bin": {
+    "pdg": "bin/pdg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhershman1/predictable-data-generation.git"
+  },
+  "keywords": [
+    "data",
+    "random",
+    "probability",
+    "generation",
+    "testing"
+  ],
+  "author": "Dustin Hershman<dustinh17@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dhershman1/predictable-data-generation/issues"
+  },
+  "homepage": "https://github.com/dhershman1/predictable-data-generation#readme",
+  "dependencies": {
+    "fs-extra": "^11.1.0",
+    "kyanite": "^1.6.2",
+    "minimist": "^1.2.7"
+  },
+  "devDependencies": {
+    "tap-on": "^0.3.1",
+    "tape": "^5.6.3"
+  }
+}
