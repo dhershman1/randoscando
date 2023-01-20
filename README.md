@@ -3,6 +3,8 @@ A simple library for predictable randomness.
 
 Seed based random functions that always return a new function back
 
+The Randoest of the Scandoest
+
 ## Functions
 
 All the below functions with 2+ arguments are curried so they can be partially executed as needed
