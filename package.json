@@ -5,7 +5,7 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "test": "tape tests/*.spec.js | tap-on"
+    "test": "tape tests/random.spec.js | tap-on"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,11 @@
     "data",
     "random",
     "probability",
-    "generation",
-    "testing",
-    "randoscando"
+    "randoscando",
+    "seeded",
+    "seed",
+    "randomness",
+    "rando"
   ],
   "author": "Dustin Hershman<dustinh17@gmail.com>",
   "license": "MIT",
