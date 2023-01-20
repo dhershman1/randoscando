@@ -1,36 +1,32 @@
 {
-  "name": "predictable-data-generation",
-  "version": "1.0.0",
-  "description": "A data generation tool for predictably random data",
+  "name": "randoscando",
+  "version": "0.1.0",
+  "description": "Predictable randomness library, all seed based",
   "module": "index.js",
   "type": "module",
   "scripts": {
     "test": "tape tests/*.spec.js | tap-on"
   },
-  "bin": {
-    "pdg": "bin/pdg"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dhershman1/predictable-data-generation.git"
+    "url": "git+https://github.com/dhershman1/randoscando.git"
   },
   "keywords": [
     "data",
     "random",
     "probability",
     "generation",
-    "testing"
+    "testing",
+    "randoscando"
   ],
   "author": "Dustin Hershman<dustinh17@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dhershman1/predictable-data-generation/issues"
+    "url": "https://github.com/dhershman1/randoscando/issues"
   },
-  "homepage": "https://github.com/dhershman1/predictable-data-generation#readme",
+  "homepage": "https://github.com/dhershman1/randoscando#readme",
   "dependencies": {
-    "fs-extra": "^11.1.0",
-    "kyanite": "^1.6.2",
-    "minimist": "^1.2.7"
+    "kyanite": "^1.6.2"
   },
   "devDependencies": {
     "tap-on": "^0.3.1",

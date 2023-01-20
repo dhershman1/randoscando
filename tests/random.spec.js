@@ -1,5 +1,5 @@
 import test from 'tape'
-import random from '../_internal/random.js'
+import random from '../index.js'
 
 test('random.num()', t => {
   t.same(random.num(20, 'abc123'), [17, 0.8986478650476784])
