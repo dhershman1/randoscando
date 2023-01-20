@@ -48,7 +48,7 @@ const pick = _curry2(function pick (items, seed) {
  * @param {String} seed A seed provided by other functions to keep data consistent
  * @returns {Any} The final product of the pipe transformation
  */
-function piper (fns, seed) {
+function seeder (fns, seed) {
   return fns.reduce(([acc, currSeed], f) => {
     const [d, fSeed] = f(currSeed)
 
@@ -110,7 +110,7 @@ function probability (list, seed) {
     n = n - prob
 
     if (n < 0) {
-      return item
+      return [item, alea(n).quick()]
     }
   }
 }
@@ -124,7 +124,7 @@ function probability (list, seed) {
  */
 function date (format, { months, days, years }, seed) {
   const dateSeed = alea(seed).quick()
-  const [[month, day, year], nextSeed] = piper([
+  const [[month, day, year], nextSeed] = seeder([
     pick(months),
     pick(days),
     pick(years)
@@ -143,7 +143,7 @@ function date (format, { months, days, years }, seed) {
 export default {
   num: _curry2(num),
   minNum: _curry3(minNum),
-  piper: _curry2(piper),
+  seeder: _curry2(seeder),
   probability: _curry2(probability),
   date: _curry3(date),
   pieces: _curry3(pieces),

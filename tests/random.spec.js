@@ -28,10 +28,21 @@ test('random.letter()', t => {
 })
 
 test('random.pieces()', t => {
-  console.log(random.pieces(['line', 'zip'], { line: ['hello', 'world', 'zoooop'], zip: [44444, 55555, 66666] }, 'abc123'))
   t.same(
     random.pieces(['line', 'zip'], { line: ['hello', 'world', 'zoooop'], zip: [44444, 55555, 66666] }, 'abc123'), ['zoooop 66666', 0.9875701994169503]
   )
+  t.end()
+})
+
+test('random.seeder', t => {
+  t.same(random.seeder([
+    random.pick([1, 2, 3, 4]),
+    random.pick([1, 2, 3, 4]),
+    random.pick([1, 2, 3, 4]),
+    random.pick([1, 2, 3, 4]),
+    random.pick([1, 2, 3, 4])
+  ], 'wooopie'), [[3, 1, 1, 4, 2], 0.30550888809375465])
+
   t.end()
 })
 
@@ -39,12 +50,12 @@ test('random.probability()', t => {
   t.same(random.probability([
     ['hello', 0.5],
     ['world', 0.5]
-  ], 'abc123'), 'world')
+  ], 'abc123'), ['world', 0.6556187274400145])
 
   t.same(random.probability([
     ['hello', 0.9],
     ['world', 0.1]
-  ], 'abc123'), 'hello')
+  ], 'abc123'), ['hello', 0.2178527475334704])
   t.end()
 })
 
