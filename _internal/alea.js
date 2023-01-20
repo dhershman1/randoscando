@@ -21,7 +21,7 @@ function mash (data) {
   return (n >>> 0) * 2.3283064365386963e-10 // 2^-32
 }
 
-function alea (seed) {
+export function alea (seed) {
   const rng = {}
 
   rng.next = function () {
@@ -48,7 +48,7 @@ function alea (seed) {
   return rng
 }
 
-function generateSeed (seed) {
+export function generateSeed (seed) {
   const al = alea(seed)
   const prng = al.next
 
