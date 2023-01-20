@@ -2,7 +2,7 @@
 // A port of an algorithm by Johannes Baagøe <baagoe@baagoe.com>, 2010
 // http://baagoe.com/en/RandomMusings/javascript/
 // https://github.com/nquinlan/better-random-numbers-for-javascript-mirror
-// Converted and imported into JS for use in contractorio
+// Converted and imported into JS for use in randoscando
 
 function mash (data) {
   let n = 0xefc8249d
