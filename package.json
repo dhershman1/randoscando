@@ -5,7 +5,8 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "test": "tape tests/random.spec.js | tap-on"
+    "test": "tape tests/random.spec.js | tap-on",
+    "lint": "standard ./index.js ./_internal/* | snazzy"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,8 @@
     "kyanite": "^1.6.2"
   },
   "devDependencies": {
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0",
     "tap-on": "^0.3.1",
     "tape": "^5.6.3"
   }

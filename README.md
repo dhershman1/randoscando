@@ -5,166 +5,64 @@ Seed based random functions that always return a new function back
 
 The Randoest of the Scandoest
 
-## Functions
+Randoscando follows a generator style setup for its randomness, you will be able to map random functions together via map, and manually move randomness forward using step like functions
 
-All the below functions with 2+ arguments are curried so they can be partially executed as needed
+## Usage
 
-### num
-Gives back a random number up to a provided maximum
+Each of the functionality built into RandoScando are meant to manually be moved forward using things like `step`
 
-#### Arguments
-- `max` -- `Number` - A number to set the max the random number can go up to
-- `seed` -- `String|Number` - A Random seed user created seed
+I am currently debating if I want map to act as a step, or if it should also return as a generator
 
+### step
 
-#### Return
-- `[Number, Number]` -- Gives back an array with 2 indexes, the first being the random number, the 2nd being a new seed
-#### Usage
-```js
-import random from 'randoscando'
-
-random.num(20, 'abc123') // => [17, 0.8986478650476784]
-random.num(20, 'abc') // => [19, 0.9722709273919463]
-```
-
-#### minNum
-Give a random number between a min and a max
+A function used to manually move forward a step with a randomness generator
 
 #### Arguments
-- `min` -- `Number` - The minimum the random number can be
-- `max` -- `Number` - The maximum the random number can be
-- `seed` -- `String|Number` - The seed to generate the data
 
-#### Return
-- `[Number, Number]` -- Gives back an array with 2 indexes, the first being the random number, the second being a new seed
-
-#### Usage
-```js
-import random from 'randoscando'
-
-random.minNum(1, 100, 'abc123') // => [90, 0.8986478650476784]
-random.minNum(1, 100, 'abc') // => [98, 0.9722709273919463]
-```
-
-### pick
-Picks a random value from a provided array or string
-
-#### Arguments
-- `list` -- `Any[]|String` - The list to pull the random value from
-- `seed` -- `String|Number` - The seed to generate the data
-
-#### Return
-- `[Any, Number]` -- Gives back an array with 2 indexes, the first being the randomly picked value, the second being a new seed
-
-#### Usage
-```js
-import random from 'randoscando'
-
-random.pick('abc123', 'ahhhh') // => ['3', 0.8598122051917017]
-random.pick([1, 2, 3], 'abc') // => [3, 0.9722709273919463]
-```
-
-### letter
-Picks a random letter from `A-Z`
-
-#### Arguments
-- `seed` -- `String|Number` - The seed to generate the data
-
-#### Return
-- `[String, Number]` -- Gives back an array with 2 indexes, the first being the random letter, the second being a new seed
-
-#### Usage
-```js
-import random from 'randoscando'
-
-random.letter('abc123') // => ['Z', 0.9875701994169503]
-random.letter(0.9875701994169503) // => ['M', 0.49460635893046856]
-```
-
-### seeder
-A function that loops through an array of random functions moving a new seed to each one and collect the random values in a new array
-
-#### Arguments
-- `fns` -- `Function[]` - An array of random functions that take a value, and seed style arguments
-- `seed` -- `String|Number` - The seed to generate the data
-
-#### Return
-- `[Any[], Number]` -- An array where the first index is a newly created array of random values and the second is a new seed
-
-#### Usage
-```js
-import random from 'randoscando'
-
-random.seeder([
-    random.pick([1, 2, 3, 4]),
-    random.pick([1, 2, 3, 4]),
-    random.pick([1, 2, 3, 4]),
-    random.pick([1, 2, 3, 4]),
-    random.pick([1, 2, 3, 4])
-  ], 'wooopie') // => [[3, 1, 1, 4, 2], 0.30550888809375465]
-```
-
-### pieces
-A function that pieces together a new string based on the tables passed into it
-
-#### Arguments
-- `keys` -- `String[]` - An array of string keys to reference the table object data with
-- `tables` -- `Object` - An object of key value pairing where the key is in `keys` and the value is a list to pick a random string from
-- `seed` -- `String|Number` - The seed to generate the data
+- `fnGen` -- `Function` - A function which returns a generator object
+- `seed` -- `String|Number` - A seed for randomness
 
 #### Returns
-- `[String, Number]` - An array with the first index being the pieced together string, and the second being a new seed
+
+- `[Any, Number]` - A data value created from the provided generator, and the seed from that generator
 
 #### Usage
 ```js
 import random from 'randoscando'
 
-const tables = { line: ['hello', 'world', 'zoooop'], zip: [44444, 55555, 66666] }
-
-random.pieces(['line', 'zip'], tables, 'abc123') // => ['zoooop 66666', 0.9875701994169503]
+random.step(random.int(1, 5), 'abc123') // => [5, 0.8986478650476784]
+random.step(random.int(1, 100), 'abc123') // => [90, 0.8986478650476784]
 ```
 
-### probability
-A simple probability function to pick a random value based on weights assigned to them
+### map
+
+Takes a list of randomness generators and creates a list of their values
 
 #### Arguments
-- `list` -- `[[Any, Number]]` - An array of arrays for value and weight assigning
-- `seed` -- `String|Number` - The seed to generate the data
+
+- `fnList` -- `((a) => [Any, Number])[]` - The array of random generator functions
+- `seed` -- `String|Number` - A seed for randomness
 
 #### Returns
-- `[value, Number]` - An array where the first index is the chosen value and the second is a new seed
+
+- `[Any[], Number]` - An array with an array of random values in the first index, and a new seed from the map as the second index
 
 #### Usage
 ```js
-import random from 'randoscando'
+random.map([
+    random.int(1, 5),
+    random.float(0, 2)
+  ], 'abc123') // => [[5, 1.9751403988339007], 0.8987810940016061]
 
-random.probability([
-    ['hello', 0.5],
-    ['world', 0.5]
-  ], 'abc123') // => ['world', 0.6556187274400145]
-random.probability([
-    ['hello', 0.9],
-    ['world', 0.1]
-  ], 'abc123') // => ['hello', 0.2178527475334704]
+random.map([
+    random.int(1, 5),
+    random.float(0, 2)
+  ], 'waaaa') // => [[2, 0.0943715781904757], 0.21161161735653877]
+
+random.map([
+    random.int(5, 100),
+    random.float(0, 4)
+  ], 'abc123') // => [[91, 3.9502807976678014], 0.8987810940016061]
 ```
 
-### date
-Create a random date string based on a format and date table that are provided
-
-#### Arguments
-- `format` -- `String` - A format string to replace use `M` for month `D` for day and `Y` for year
-- `dateTable` -- `Object` - An object with keys `months`, `days`, and `years` as keys with arrays of strings for each
-- `seed` -- `String|Number` - The seed to generate the data
-
-#### Returns
-- `String` - A date string in the desired format
-
-#### Usage
-```js
-import random from 'randoscando'
-
-const datesTable = { months: ['01', '02', '03'], days: ['12', '09', '20'], years: ['2010', '2023', '2020'] }
-
-random.date('M/D/Y', datesTable, 'abc123') // => ['03/12/2023', 0.49460635893046856]
-random.date('M/D/Y', datesTable, 'coolbeans') // => ['03/09/2020', 0.9407318972516805]
-```
+> **Note**: Currently in process of re writing readme as currently the library is in rapid change mode
