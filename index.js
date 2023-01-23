@@ -58,7 +58,7 @@ function weighted ([a, ...rest]) {
         return [a, seed.next()]
       }
       const [, firstWeight] = a
-      const total = firstWeight + K.sum(K.map(([_, weight]) => weight, rest))
+      const total = Math.abs(firstWeight) + K.sum(K.map(([_, weight]) => Math.abs(weight), rest))
       let [countdown] = float(0, total).step(seed)
 
       for (const [val, prob] of [a, ...rest]) {
