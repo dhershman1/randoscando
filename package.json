@@ -4,6 +4,7 @@
   "description": "Predictable randomness library, all seed based",
   "module": "index.js",
   "type": "module",
+  "typings": "types/index.d.ts",
   "scripts": {
     "test": "tape tests/random.spec.js | tap-on",
     "lint": "standard ./index.js ./_internal/* | snazzy"
