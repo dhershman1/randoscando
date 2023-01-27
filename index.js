@@ -97,7 +97,7 @@ function map (list) {
  * @param {Number} max The maximum the number can be
  * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
- * import random from 'randoscando
+ * import random from 'randoscando'
  *
  * random.step(random.int(1, 100), 'abc123') // => [90, 0.8986478650476784]
  * random.step(random.int(1, 100), 'wagh') // => [65, 0.646466348785907]
@@ -129,7 +129,7 @@ function int (min, max) {
  * @param {Number} max The maximum the number can be
  * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
- * import random from 'randoscando
+ * import random from 'randoscando'
  *
  * random.step(random.float(0, 1), 'abc123') // => [0.8986478650476784, 0.8986478650476784]
  *
