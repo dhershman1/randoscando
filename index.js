@@ -193,6 +193,20 @@ function weighted ([a, ...rest]) {
   }
 }
 
+/**
+ * @name uniform
+ * @function
+ * @since v0.1.0
+ * @category Function
+ * @sig any[]-> RandomGenerator
+ * @description Takes a list of values gives them all equal weight, and picks one
+ * @param {any[]} list An array of values to choose from
+ * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @example
+ * import random from 'randoscando'
+ *
+ * random.step(random.uniform([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 'abc123') // => [8, 0.8987810940016061]
+ */
 function uniform ([a, ...list]) {
   return {
     value: a,
@@ -210,6 +224,20 @@ function uniform ([a, ...list]) {
   }
 }
 
+/**
+ * @name letter
+ * @function
+ * @since v0.1.0
+ * @category Function
+ * @sig string|undefined -> RandomGenerator
+ * @description Takes a list of values gives them all equal weight, and picks one
+ * @param {String} def A value to set the value of letter to on creation of the generator (defaults to 'A')
+ * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @example
+ * import random from 'randoscando'
+ *
+ * random.step(random.letter(), 'abc123') // => ['W', 0.8987810940016061]
+ */
 function letter (def = 'A') {
   return {
     value: def,
@@ -222,15 +250,56 @@ function letter (def = 'A') {
   }
 }
 
+/**
+ * @name pair
+ * @function
+ * @since v0.1.0
+ * @category Function
+ * @sig RandomGenerator -> RandomGenerator -> [RandomGenerator, Seed]
+ * @description Takes in 2 generators to create a new generator and produce a random pair
+ * @param {Function} genOne The first generator function
+ * @param {Function} genTwo The second generator function
+ * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @example
+ * import random from 'randoscando'
+ *
+ * random.step(
+ *   random.pair(random.int(1, 100), random.int(1, 100)),
+ *   'abc123'
+ * ) // => [[99, 10], 0.8987810940016061]
+ *
+ * // pair is curried
+ * cosnt fn = random.pair(random.int(1, 100))
+ *
+ * random.step(fn(random.int(1, 100)), 'abc123') // => [[99, 10], 0.8987810940016061]
+ */
 function pair (genOne, genTwo) {
   return {
     value: [genOne, genTwo],
     step (seed) {
-      return [pair(step(genOne, seed.next()), step(genTwo, seed.next())), seed.next()]
+      return [pair(step(genOne, seed.next())[0], step(genTwo, seed.next())[0]), seed.next()]
     }
   }
 }
 
+/**
+ * @name list
+ * @function
+ * @since v0.1.0
+ * @category Function
+ * @sig number -> RandomGenerator -> RandomGenerator
+ * @description Creates a Random Generator responsible for building a random list of the desired length using the desired generator function
+ * @param {Number} len A number value to tell list how many values to place in the array
+ * @param {RandomGenerator} gen The Random Generator we want to use to populate the array with
+ * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @example
+ * import random from 'randoscando'
+ *
+ * t.same(random.step(random.list(10, random.letter()),'abc123') // =>[
+ *   ['Y', 'N', 'C', 'U', 'N', 'F', 'H', 'D', 'O', 'A'],
+ *   0.8987810940016061
+ * ]
+ */
 function list (len, gen) {
   return {
     value: len,

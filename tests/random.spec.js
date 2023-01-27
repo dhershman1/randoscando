@@ -94,6 +94,7 @@ test('random.weighted()', t => {
 test('random.uniform()', t => {
   const data = K.range(1, 1000)
 
+  t.same(random.step(random.uniform([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 'abc123'), [8, 0.8987810940016061])
   t.same(random.step(random.uniform(data), 'abc123'), [898, 0.8987810940016061])
   t.same(random.step(random.uniform(data), 'waaaa'), [219, 0.21161161735653877])
   t.same(random.step(random.uniform(data), 'supercoolseed'), [830, 0.8298104661516845])
@@ -105,12 +106,12 @@ test('random.pair()', t => {
   t.same(random.step(
     random.pair(random.int(1, 100), random.int(1, 100)),
     'abc123'
-  ), [[[99, 0.9875701994169503], [10, 0.09262719005346298]], 0.8987810940016061])
+  ), [[99, 10], 0.8987810940016061])
 
   t.same(random.step(
     random.pair(random.float(1, 100), random.float(1, 100)),
     'abc123'
-  ), [[[98.76944974227808, 0.9875701994169503], [10.170091815292835, 0.09262719005346298]], 0.8987810940016061])
+  ), [[98.76944974227808, 10.170091815292835], 0.8987810940016061])
 
   t.end()
 })
