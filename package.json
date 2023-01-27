@@ -7,7 +7,8 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "test": "tape tests/random.spec.js | tap-on",
-    "lint": "standard ./index.js ./_internal/* | snazzy"
+    "lint": "standard ./index.js ./_internal/* | snazzy",
+    "docs": "node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,8 @@
     "kyanite": "^1.6.2"
   },
   "devDependencies": {
+    "jsdoc": "^4.0.0",
+    "pinet": "^1.1.3",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
     "tap-on": "^0.3.1",

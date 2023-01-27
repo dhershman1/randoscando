@@ -25,11 +25,11 @@ function initialSeed (seed) {
  * @function
  * @since v0.1.0
  * @category Function
- * @sig { value: any, step: (seed) => [RandomGenerator, Seed] } -> AleaSeed -> [any, Seed]
+ * @sig { value: any, step: (seed) => Array } -> AleaSeed -> [any, Seed]
  * @description Manually step through a random function in order to generate a value
  * @param {Object} fnGen The Generator function to step through and get a value from
- * @param {Number|String|Seed} seed The seed we want to use to create the randomness
- * @returns {[any, Seed]} An array pair with the value at [0] and the next seed at [1]
+ * @param {Seed} seed The seed we want to use to create the randomness
+ * @returns {Array} An array pair with the value at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *
@@ -59,7 +59,7 @@ function step (fnGen, seed) {
  * @sig RandomGenerators[] -> [RandomGenerator[], Seed]
  * @description Creates a single generator out of many, also supports nesting multiple maps
  * @param {RandomGenerator[]} list The Array of Generators we are going to map through
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *
@@ -95,7 +95,7 @@ function map (list) {
  * @description Creates a random number generator that will stay between the provided min and max
  * @param {Number} min The minimum the number can be
  * @param {Number} max The maximum the number can be
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando
  *
@@ -127,7 +127,7 @@ function int (min, max) {
  * @description Creates a random number generator that will stay between the provided min and max
  * @param {Number} min The minimum the number can be
  * @param {Number} max The maximum the number can be
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando
  *
@@ -156,8 +156,8 @@ function float (min, max) {
  * @category Function
  * @sig [any, Number][] -> RandomGenerator
  * @description Takes a list of weighted values and creates a generator to pick one
- * @param {[any, Number][]} list An array of weighted values
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @param {Array} list An array of weighted values
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *
@@ -201,7 +201,7 @@ function weighted ([a, ...rest]) {
  * @sig any[]-> RandomGenerator
  * @description Takes a list of values gives them all equal weight, and picks one
  * @param {any[]} list An array of values to choose from
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *
@@ -232,7 +232,7 @@ function uniform ([a, ...list]) {
  * @sig string|undefined -> RandomGenerator
  * @description Takes a list of values gives them all equal weight, and picks one
  * @param {String} def A value to set the value of letter to on creation of the generator (defaults to 'A')
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *
@@ -259,7 +259,7 @@ function letter (def = 'A') {
  * @description Takes in 2 generators to create a new generator and produce a random pair
  * @param {Function} genOne The first generator function
  * @param {Function} genTwo The second generator function
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {Array} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *
@@ -291,7 +291,7 @@ function pair (genOne, genTwo) {
  * @description Creates a Random Generator responsible for building a random list of the desired length using the desired generator function
  * @param {Number} len A number value to tell list how many values to place in the array
  * @param {RandomGenerator} gen The Random Generator we want to use to populate the array with
- * @returns {[RandomGenerator, Seed]} An Array pair with a new generator at [0] and the next seed at [1]
+ * @returns {RandomGeneratorResponse} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
  * import random from 'randoscando'
  *

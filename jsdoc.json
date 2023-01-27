@@ -1,0 +1,62 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "includePattern": ".js$",
+    "include": [
+      "index.js",
+      "package.json",
+      "./README.md"
+    ]
+  },
+  "sourceType": "module",
+  "plugins": [
+    "node_modules/pinet/tags.js"
+  ],
+  "opts": {
+    "encoding": "utf8",
+    "template": "node_modules/pinet",
+    "destination": "./docs/",
+    "recurse": true,
+    "verbose": false
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": false,
+    "idInHeadings": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true,
+      "includeDate": false
+    }
+  },
+  "pinet": {
+    "title": "Randoscando - Documentation",
+    "genSources": true,
+    "links": [
+      {
+        "name": "Github",
+        "link": "https://github.com/dhershman1/randoscando"
+      }
+    ],
+    "changelog": "./CHANGELOG.md",
+    "lang": "en",
+    "customTags": [
+      "category",
+      "signature"
+    ],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1.0"
+      },
+      {
+        "charset": "UTF-8"
+      }
+    ]
+  }
+}
