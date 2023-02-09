@@ -47,7 +47,6 @@ function step (fnGen, seed) {
     : alea(seed)
   const [{ value }, resultSeed] = fnGen.step(aSeed)
 
-
   return [value, resultSeed]
 }
 
