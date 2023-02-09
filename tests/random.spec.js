@@ -74,14 +74,14 @@ test('randoscando.weighted()', t => {
     ['b', 20],
     ['c', 20],
     ['d', 20],
-    ['e', 20],
+    ['e', 20]
   ]), 'abc123'), ['d', 0.8987810940016061])
   t.same(randoscando.step(randoscando.weighted([
     ['a', 20],
     ['b', 20],
     ['c', 20],
     ['d', 20],
-    ['e', 20],
+    ['e', 20]
   ]), 'waaa'), ['b', 0.5667258112225682])
   t.same(randoscando.step(randoscando.weighted([
     ['hello', 10],
