@@ -35,11 +35,10 @@ You can for sure use randoscandos functions without using `step` you just need t
 
 ```js
 import randoscando from 'randoscando'
-import { alea } from 'randoscando/_internal/alea'
 
 randoscando.int(1, 100) // => { value: 100, step: function (seed) {} }
 
-const seed = alea('abc123')
+const seed = randoscando.initialSeed('abc123')
 const int = randoscando.int(1, 100)
 
 int.step(seed) // => [90, 0.8986478650476784]
