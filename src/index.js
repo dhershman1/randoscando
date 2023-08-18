@@ -1,3 +1,4 @@
+export { default as bool } from './function/bool.js'
 export { default as initialSeed } from './function/initialSeed.js'
 export { default as map } from './function/map.js'
 export { default as step } from './function/step.js'
