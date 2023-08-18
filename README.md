@@ -3,7 +3,7 @@ A simple library for seed based predictable randomness.
 
 > The Randoest of the Scandoest
 
-Randoscando follows a generator style setup for its randomness, you will be able to map random functions together via map, and manually move randomness forward using step like functions
+Randoscando follows a generator style setup for its randomness allowing it to describe _how_ to generate a random value, you will be able to map random functions together via map, and manually move randomness forward using step like functions
 
 ## Install
 

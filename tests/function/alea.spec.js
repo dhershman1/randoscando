@@ -1,5 +1,5 @@
 import test from 'tape'
-import generateSeed, { alea } from '../_internal/alea.js'
+import generateSeed, { alea } from '../../src/_internal/alea.js'
 
 test('Alea should produce a seed with next', t => {
   const seed = alea('abc123')
