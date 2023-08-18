@@ -11,6 +11,35 @@ Randoscando follows a generator style setup for its randomness allowing it to de
 npm i randoscando
 ```
 
+## How To
+
+### Standard ESM module
+
+```js
+import * as random from 'randoscando'
+// or
+import { int, step } from 'randoscando'
+```
+
+### CommonJS
+
+```js
+const random = require('randoscando')
+// or
+const { int, step } = require('randoscando')
+```
+
+### CDN
+> **Note:** It is highly recommended to replace `@latest` with a strict version!
+
+```html
+<!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/randoscando@latest/dist/randoscando.iife.min.js"></script>
+<!-- unpkg -->
+<script src="https://unpkg.com/randoscando@latest/dist/randoscando.iife.min.js"></script>
+```
+
+
 ## Usage
 
 The documentation will show you what each random function is capable of doing however in order to sequence these you need to use the `step` function
