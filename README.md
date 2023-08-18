@@ -1,4 +1,29 @@
 # Randoscando
+
+<p align=center>
+  <a href="./LICENSE">
+    <img
+      alt="license:mit"
+      src="https://img.shields.io/badge/license-mit-green.svg?style=flat-square"
+    />
+  </a>
+  <a href="https://randoscando.dusty.codes/">
+    <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/5a3850ce-7b82-490e-90b0-86a9e70a3e5e/deploy-status">
+  </a>
+  <a href="https://www.npmjs.com/package/randoscando">
+    <img alt="Npm Version" src="https://img.shields.io/npm/v/randoscando.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/dhershman1/randoscando/actions/workflows/randoscando.yml">
+    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/dhershman1/randoscando/randoscando.yml?style=flat-square">
+  </a>
+</p>
+<br />
+<p align=center>
+  <a href="https://github.com/standard/standard">
+    <img alt="Standard JS" src="https://cdn.rawgit.com/standard/standard/master/badge.svg">
+  </a>
+</p>
+
 A simple library for seed based predictable randomness.
 
 > The Randoest of the Scandoest
