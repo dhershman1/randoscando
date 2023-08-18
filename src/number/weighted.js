@@ -1,6 +1,4 @@
 import { sum, map, isEmpty } from 'kyanite'
-import float from './float.js'
-import step from '../function/step.js'
 
 /**
  * @name weighted
@@ -30,13 +28,14 @@ function weighted ([a, ...rest]) {
         return [weighted([[a]]), seed.next()]
       }
       const [, firstWeight] = a
-      const total = Math.abs(firstWeight) + sum(map(([_, weight]) => Math.abs(weight), rest))
-      let [countdown] = step(float(1, total), seed)
+      const weightSum = Math.abs(firstWeight) + sum(map(([_, weight]) => Math.abs(weight), rest))
+      const selected = seed.next() * weightSum
+      let total = 0
 
       for (const [val, prob] of [a, ...rest]) {
-        countdown -= prob
+        total += prob
 
-        if (countdown <= prob) {
+        if (selected <= total) {
           return [weighted([[val]]), seed.next()]
         }
       }
