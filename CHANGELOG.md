@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1
+
+### Fixed
+
+- Incorrect usage on the README
+
 ## v1.0.0
 
 ### Breaking Changes

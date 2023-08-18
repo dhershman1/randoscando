@@ -1,6 +1,6 @@
 {
   "name": "randoscando",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Predictable randomness library, all seed based",
   "main": "dist/randoscando.min.js",
   "module": "src/index.js",

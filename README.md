@@ -76,9 +76,9 @@ In the example below the response is `[90, 0.8986478650476784]` where `90` is th
 ### Example
 
 ```js
-import randoscando from 'randoscando'
+import { step, int } from 'randoscando'
 
-randoscando.step(randoscando.int(1, 100), 'abc123') // => [90, 0.8986478650476784]
+step(int(1, 100), 'abc123') // => [90, 0.8986478650476784]
 ```
 
 ### Using Functions By Themselves
@@ -88,12 +88,12 @@ You can for sure use randoscandos functions without using `step` you just need t
 #### Example
 
 ```js
-import randoscando from 'randoscando'
+import { int, initialSeed } from 'randoscando'
 
-randoscando.int(1, 100) // => { value: 100, step: function (seed) {} }
+int(1, 100) // => { value: 100, step: function (seed) {} }
 
-const seed = randoscando.initialSeed('abc123')
-const int = randoscando.int(1, 100)
+const seed = initialSeed('abc123')
+const int = int(1, 100)
 
 int.step(seed) // => [90, 0.8986478650476784]
 ```
