@@ -12,9 +12,9 @@ import { _curry2 } from '../_internal/curry.js'
  * @param {RandomGenerator} gen The Random Generator we want to use to populate the array with
  * @returns {RandomGeneratorResponse} An Array pair with a new generator at [0] and the next seed at [1]
  * @example
- * import { letter, list, step } from 'randoscando'
+ * import { englishLetter, list, step } from 'randoscando'
  *
- * step(list(10, letter()),'abc123') // => [['Y', 'N', 'C', 'U', 'N', 'F', 'H', 'D', 'O', 'A'], 0.8987810940016061]
+ * step(list(10, englishLetter()),'abc123') // => [['Y', 'N', 'C', 'U', 'N', 'F', 'H', 'D', 'O', 'A'], 0.8987810940016061]
  */
 function list (len, gen) {
   return {

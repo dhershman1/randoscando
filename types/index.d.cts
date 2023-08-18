@@ -63,7 +63,7 @@ declare namespace random {
     /**
      * Creates a Generator for a random letter between A-Z
      */
-    letter(def?: string): GeneratorPair
+    englishLetter(def?: string): GeneratorPair
 
     /**
      * Creates a generator for a random pair of results from other generators

@@ -2,7 +2,7 @@ import test from 'tape'
 import step from '../../src/function/step.js'
 import list from '../../src/list/list.js'
 import int from '../../src/number/int.js'
-import letter from '../../src/string/letter.js'
+import englishLetter from '../../src/string/englishLetter.js'
 
 test('list()', t => {
   t.same(
@@ -13,7 +13,7 @@ test('list()', t => {
   )
 
   t.same(step(
-    list(10, letter()),
+    list(10, englishLetter()),
     'abc123'
   ), [
     ['Y', 'N', 'C', 'U', 'N', 'F', 'H', 'D', 'O', 'A'],
