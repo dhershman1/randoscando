@@ -2,9 +2,12 @@
   "name": "randoscando",
   "version": "0.1.0",
   "description": "Predictable randomness library, all seed based",
+  "main": "dist/randoscando.min.js",
   "module": "src/index.js",
   "type": "module",
   "typings": "types/index.d.ts",
+  "unpkg": "dist/randoscando.iife.min.js",
+  "jsdelivr": "dist/randoscando.iife.min.js",
   "exports": {
     ".": {
       "import": {
@@ -24,7 +27,7 @@
   "scripts": {
     "test": "tape tests/**/*.spec.js | tap-on",
     "create": "node scripts/create-export.js && standard --fix src/index.js",
-    "lint": "standard ./index.js ./_internal/* | snazzy",
+    "lint": "standard --fix src/**/*.js | snazzy",
     "docs": "node_modules/.bin/jsdoc -c jsdoc.json",
     "build": "rollup -c",
     "prepack": "npm-run-all --parallel create lint test --serial build"
